@@ -1,0 +1,54 @@
+{
+  "achievements": [
+    {
+      "id": 1,
+      "title": "Proofs of Knowledge",
+      "organization": "Various",
+      "date": "Various",
+      "description": "Completed courses and passed practice tests of CompTIA Security+ & SC-900",
+      "image": "/static/images/achievements/certs.png",
+      "category": "certification",
+      "icon": "📜"
+    },
+    {
+      "id": 2,
+      "title": "Sustainability & Tech Mentor",
+      "organization": "RMIT University",
+      "date": "May 2024",
+      "description": "Guided emerging leaders in the Emerging Leaders Program with specialized cyber security. Mentorship—honored as Best Mentor throughout the program",
+      "image": "/static/images/achievements/elp.png",
+      "category": "certification",
+      "icon": "\uD83D\uDCBC"
+    },
+    {
+      "id": 3,
+      "title": "Honour Industry Award",
+      "organization": "De Heus Company & RMIT University",
+      "date": "September 2024",
+      "description": "Awarded the IT industry’s premier accolade for our visionary AI-adoption roadmap, catalyzing organizational transformation.",
+      "image": "/static/images/achievements/deheus.png",
+      "category": "certification",
+      "icon": "🏅"
+    },
+    {
+      "id": 4,
+      "title": "Accessibility Tech Hackathon",
+      "organization": "RMIT University",
+      "date": "October 2023",
+      "description": "Outstanding performance as a leader of 'Dream Chasers' with the proposal for Speech & Language Disabilities",
+      "image": "/static/images/achievements/adc2023.png",
+      "category": "contribution",
+      "icon": "🌟"
+    },
+    {
+      "id": 5,
+      "title": "IT Guest Speaker",
+      "organization": "RMIT Technology Culture Club",
+      "date": "October 2023",
+      "description": "Delivered an in-depth presentation on curriculum structure, and provided technical consulting to optimize learning outcomes",
+      "image": "/static/images/achievements/speaker.png",
+      "category": "contribution",
+      "icon": "🎤"
+    }
+  ]
+}

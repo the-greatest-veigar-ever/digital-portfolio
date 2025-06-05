@@ -1,0 +1,17 @@
+{
+  "name": "Quân Nguyễn Minh",
+  "title": "Security Architect | Team Member | Fresher Level",
+  "tagline": "Living my dreams technologically",
+  "bio": "Passionate IT professional with expertise in web development, cloud technologies, and modern frameworks. I love creating user-friendly applications that solve real-world problems.",
+  "location": "Ho Chi Minh City, Vietnam",
+  "email": "programmerquannguyen@gmail.com",
+  "phone": "+84 905 47 2003",
+  "social": {
+    "github": "https://github.com/the-greatest-veigar-ever",
+    "linkedin": "https://www.linkedin.com/in/quanng47/",
+    "twitter": "https://twitter.com/yourhandle",
+    "website": "https://yourwebsite.com"
+  },
+  "resume_url": "/static/files/resume.pdf",
+  "profile_image": "/static/images/profile.png"
+}

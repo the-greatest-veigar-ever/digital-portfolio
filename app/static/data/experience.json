@@ -1,0 +1,78 @@
+{
+"experience": [
+    {
+  "id": 1,
+  "title": "Security Architect | Team Member | Fresher Level",
+  "company": "National Australia Bank (NAB)",
+  "location": "Ho Chi Minh City, Vietnam",
+  "start_date": "June 2024",
+  "end_date": "Present",
+  "current": true,
+  "description": "Joined NAB through the Batch 6 Cyber Security Internship and transitioned into a Security Architect role (entry-level). I work with project teams to identify and address security concerns, perform risk assessments across NAB’s infrastructure & SaaS Solution",
+  "achievements": [
+    "[Internship] Gained foundational exposure to Security GRC, DLP, Offensive Security, and Mainframe security domains",
+    "[Internship] Assisted in applying Defense-in-Depth, Least Privilege, and Zero Trust principles to junior-level assignments",
+    "[Team Member] Performing Information Security Risk Assessment to ensure all projects compliant with NAB’s Security Policies, Procedures and Operational Guidelines",
+    "[Team Member] Supported security due diligence aligned with ISO 27001, NIST CSF v2, APRA CPS 234, and PCI-DSS standards",
+    "[Team Member] Assisted in reviewing security architectures for on-premises, hybrid-cloud, and multi-cloud (AWS, Azure) under guidance"
+  ],
+  "technologies": [
+    "AWS",
+    "Azure",
+    "ISO 27001",
+    "NIST CSF v2",
+    "APRA CPS 234",
+    "PCI-DSS",
+    "Security GRC",
+    "DLP",
+    "Zero Trust"
+  ]
+},
+    {
+      "id": 2,
+      "title": "Technical Support Engineer",
+      "company": "ITechwx Limited Co.",
+      "location": "Ho Chi Minh City, Vietnam",
+      "start_date": "November 2023",
+      "end_date": "May 2024",
+      "current": false,
+      "description": "Supported Microsoft System Center Suite and managed large-scale IT environments with focus on Windows Server infrastructure and cloud operations.",
+      "achievements": [
+        "Supported Microsoft System Center Suite (Orchestrator, Configuration Manager, Operations Manager) for large-scale IT environments",
+        "Deployed and maintained Windows Server 2016, domain-connected PCs, and Kerberos V5 authentication",
+        "Streamlined data handling using SQL Server/SSRS for reporting and ETL processes",
+        "Administered on-prem Active Directory (Windows/Linux) and leveraged Azure (VMs, SCOM) with PowerShell"
+      ],
+      "technologies": ["Microsoft System Center", "Windows Server 2016", "Kerberos V5", "SQL Server", "SSRS", "Active Directory", "Azure", "PowerShell"]
+    },
+    {
+      "id": 3,
+      "title": "Software Engineering Intern",
+      "company": "EyeQ Tech",
+      "location": "Ho Chi Minh City, Vietnam",
+      "start_date": "March 2023",
+      "end_date": "July 2023",
+      "current": false,
+      "description": "Developed Windows applications and backend systems for hotel management solutions using modern technologies and frameworks.",
+      "achievements": [
+        "Developed a Windows application emulating hotel check-in (C#, .NET 6.0, MVVM) using internal APIs and tested with Postman",
+        "Enhanced a UWP kiosk app (monthly updates) with .NET 4.7.2 to improve hotel management features",
+        "Built a backend for a mini-PMS with NestJS and MongoDB, streamlining business logic and data handling",
+        "Collaborated with development team to deliver high-quality software solutions"
+      ],
+      "technologies": ["C#", ".NET 6.0", "MVVM", "UWP", ".NET 4.7.2", "NestJS", "MongoDB", "Postman"]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "degree": "Bachelor of Information Technology",
+      "institution": "RMIT Vietnam",
+      "location": "Ho Chi Minh City, Vietnam",
+      "start_date": "October 2021",
+      "end_date": "April 2025",
+      "gpa": "3.7/4.0",
+      "description": "As an RMIT Vietnam Bachelor of Information Technology student, I studied technical knowledge in system administration, software engineering, database design, and networking. Moreover,   I enhanced my technical soft-skill abilities by analyzing complex requirements, creating practical solutions, and improving them on my capstone and course projects.    Through technical events participation, I improved my skills in time management, task planning, and presenting technical concepts to classmates and professors. This is where I learnt to be more adaptive, obtained new resources, and become more confident in real-world situations."
+    }
+  ]
+}

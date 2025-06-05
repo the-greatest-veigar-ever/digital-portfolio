@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio - {% if personal %}{{ personal.name }}{% endif %}{% endblock %}</title>
+
+    <!-- Meta Tags -->
+    <meta name="description" content="{% block description %}Professional portfolio showcasing web development projects and achievements{% endblock %}">
+    <meta name="keywords" content="web developer, full stack, portfolio, {% if personal %}{{ personal.name }}{% endif %}">
+    <meta name="author" content="{% if personal %}{{ personal.name }}{% endif %}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{% block og_title %}{% if personal %}{{ personal.name }} - {{ personal.title }}{% endif %}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Professional portfolio showcasing innovative web development solutions{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/glassmorphism.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="gradient-bg">
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <ul>
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#experience" class="nav-link">Experience</a></li>
+            <li><a href="#achievements" class="nav-link">Achievements</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; {{ current_year }} {% if personal %}{{ personal.name }}{% endif %}. All rights reserved.</p>
+                </div>
+
+                {% if personal and personal.social %}
+                <div class="social-links">
+                    {% if personal.social.github %}
+                    <a href="{{ personal.social.github }}" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    {% endif %}
+
+                    {% if personal.social.linkedin %}
+                    <a href="{{ personal.social.linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    {% endif %}
+
+                    {% if personal.social.twitter %}
+                    <a href="{{ personal.social.twitter }}" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    {% endif %}
+
+                    {% if personal.email %}
+                    <a href="mailto:{{ personal.email }}" class="social-link" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

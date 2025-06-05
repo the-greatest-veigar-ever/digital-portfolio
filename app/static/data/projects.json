@@ -1,0 +1,61 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "AI-Adoption Roadmap for De Heus Myanmar",
+      "description": "",
+      "image": "/static/images/projects/ai-roadmap.png",
+      "technologies": ["Python", "Streamlit", "Machine Learning", "Data Analysis", "AI Modeling"],
+      "features": [
+        "Analyzed key broiler variables for closed and open housing setups",
+        "Developed interactive Streamlit dashboards for data visualization",
+        "Created predictive models for broiler weight optimization",
+        "Delivered actionable AI adoption strategies for agriculture"
+      ],
+      "live_url": "/static/files/CapstoneProject_FinalReport_925.pdf",
+      "status": "completed",
+      "date": "February 2024 – September 2024"
+    },
+    {
+      "id": 2,
+      "title": "Music Note Detector",
+      "description": "Built a Flask-based web application that detects musical notes from sheet music images using Jinja2 templates and image-processing algorithms.",
+      "image": "/static/images/projects/music-note-detector.png",
+      "technologies": ["Python", "Flask", "Jinja2", "OpenCV", "TensorFlow"],
+      "features": [
+        "Implemented an image-processing pipeline to isolate and identify note symbols",
+        "Developed RESTful endpoints for uploading and processing sheet music",
+        "Rendered dynamic result pages using Jinja2 templates",
+        "Integrated TensorFlow models for real-time note classification"
+      ],
+      "github_url": "https://github.com/the-greatest-veigar-ever/Music-Note-Detector-Flask.git",
+      "live_url": "",
+      "status": "completed",
+      "date": "May 2025 – June 2025"
+    },
+    {
+      "id": 3,
+      "title": "DragonsSpeak - In Progress",
+      "description": "A custom online chat platform for D&D campaigns, complete with an inventory system for item tracking and a private “whisper” feature to make party communication effortless.",
+      "image": "/static/images/projects/dragons-speak.jpeg",
+      "technologies": [],
+      "features": [],
+      "github_url": "",
+      "live_url": "",
+      "status": "",
+      "date": ""
+    },
+    {
+      "id": 4,
+      "title": "Project Title Placeholder",
+      "description": "",
+      "image": "",
+      "technologies": [],
+      "features": [],
+      "github_url": "",
+      "live_url": "",
+      "status": "",
+      "date": ""
+    }
+  ]
+}

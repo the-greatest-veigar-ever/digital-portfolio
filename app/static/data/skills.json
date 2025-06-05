@@ -1,0 +1,45 @@
+{
+  "categories": [
+    {
+      "name": "Frontend",
+      "skills": [
+        {"name": "React", "level": 90, "icon": "⚛️"},
+        {"name": "Vue.js", "level": 85, "icon": "🟢"},
+        {"name": "JavaScript", "level": 95, "icon": "🟨"},
+        {"name": "TypeScript", "level": 80, "icon": "🔷"},
+        {"name": "HTML5/CSS3", "level": 90, "icon": "🎨"},
+        {"name": "Tailwind CSS", "level": 85, "icon": "💨"}
+      ]
+    },
+    {
+      "name": "Backend",
+      "skills": [
+        {"name": "Python", "level": 90, "icon": "🐍"},
+        {"name": "Flask", "level": 85, "icon": "🌶️"},
+        {"name": "Django", "level": 80, "icon": "🎸"},
+        {"name": "Node.js", "level": 85, "icon": "🟢"},
+        {"name": "Express.js", "level": 80, "icon": "⚡"},
+        {"name": "REST APIs", "level": 90, "icon": "🔗"}
+      ]
+    },
+    {
+      "name": "Database",
+      "skills": [
+        {"name": "PostgreSQL", "level": 85, "icon": "🐘"},
+        {"name": "MongoDB", "level": 80, "icon": "🍃"},
+        {"name": "Redis", "level": 75, "icon": "🔴"},
+        {"name": "MySQL", "level": 80, "icon": "🐬"}
+      ]
+    },
+    {
+      "name": "DevOps & Tools",
+      "skills": [
+        {"name": "Docker", "level": 85, "icon": "🐳"},
+        {"name": "AWS", "level": 80, "icon": "☁️"},
+        {"name": "Git", "level": 95, "icon": "📱"},
+        {"name": "Linux", "level": 85, "icon": "🐧"},
+        {"name": "CI/CD", "level": 75, "icon": "🔄"}
+      ]
+    }
+  ]
+}

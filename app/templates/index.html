@@ -1,0 +1,764 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            {% if personal and personal.profile_image %}
+            <div class="profile-image-container">
+                <img src="{{ personal.profile_image }}" alt="{{ personal.name }}" class="profile-image floating">
+            </div>
+            {% endif %}
+
+            <h1 class="hero-title">
+                {% if personal %}{{ personal.name }}{% else %}Your Name{% endif %}
+            </h1>
+
+            <p class="subtitle">
+                {% if personal %}{{ personal.title }}{% else %}Full Stack Developer{% endif %}
+            </p>
+
+            <p class="description">
+                {% if personal %}{{ personal.tagline }}{% else %}Crafting innovative solutions with modern technology{% endif %}
+            </p>
+
+            <div class="hero-buttons">
+                {% if personal and personal.resume_url %}
+                <a href="{{ personal.resume_url }}" class="glass-button" target="_blank">
+                    <i class="fas fa-download"></i>
+                    Download Resume
+                </a>
+                {% endif %}
+
+                <a href="#contact" class="glass-button">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title jade-text-gradient">About Me</h2>
+            <p class="section-subtitle">
+                {% if personal %}{{ personal.bio }}{% else %}Passionate about creating amazing digital experiences{% endif %}
+            </p>
+        </div>
+
+        <div class="about-cards-container">
+            <!-- Personal Info Card -->
+            <div class="about-info-card">
+                <div class="about-card-header">
+                    <div class="about-card-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="about-card-title">Personal Info</h3>
+                </div>
+                <div class="about-card-content">
+                    {% if personal %}
+                    <ul class="personal-info-list">
+                        <li class="personal-info-item">
+                            <div class="personal-info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="personal-info-details">
+                                <div class="personal-info-label">Location</div>
+                                <div class="personal-info-value">{{ personal.location or 'Ho Chi Minh City, Vietnam' }}</div>
+                            </div>
+                        </li>
+                        <li class="personal-info-item">
+                            <div class="personal-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="personal-info-details">
+                                <div class="personal-info-label">Email</div>
+                                <div class="personal-info-value">
+                                    <a href="mailto:{{ personal.email }}">{{ personal.email }}</a>
+                                </div>
+                            </div>
+                        </li>
+                        {% if personal.phone %}
+                        <li class="personal-info-item">
+                            <div class="personal-info-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="personal-info-details">
+                                <div class="personal-info-label">Phone</div>
+                                <div class="personal-info-value">{{ personal.phone }}</div>
+                            </div>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    {% else %}
+                    <p>Update your personal information in the personal.json file.</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- What I Do Card -->
+            <div class="about-info-card">
+                <div class="about-card-header">
+                    <div class="about-card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="about-card-title">What I Do</h3>
+                </div>
+                <div class="about-card-content">
+                    <ul class="services-list">
+                        <li class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <span class="service-text">Cybersecurity Architecture & Risk Management</span>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <span class="service-text">Cloud Security & Infrastructure</span>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <span class="service-text">AI/ML Solutions & Data Analysis</span>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <span class="service-text">Security Compliance & Governance</span>
+                        </li>
+                        <li class="service-item">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <span class="service-text">Software Development & Integration</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title jade-text-gradient">Featured Projects</h2>
+            <p class="section-subtitle">Some of the projects I've worked on recently</p>
+        </div>
+
+        {% if projects and projects.projects %}
+        <div class="projects-carousel-container">
+            <div class="projects-carousel" id="projectsCarousel">
+                {% for project in projects.projects %}
+                <div class="project-carousel-card {% if loop.index == 1 %}active{% endif %}" data-index="{{ loop.index0 }}">
+                    {% if project.image %}
+                    <div class="project-image-container">
+                        <img src="{{ project.image }}" alt="{{ project.title }}" class="project-image" loading="lazy">
+                    </div>
+                    {% endif %}
+
+                    <div class="project-content">
+                        <h3 class="project-title">{{ project.title }}</h3>
+                        <p class="project-description">{{ project.description }}</p>
+
+                        {% if project.technologies %}
+                        <div class="project-tech">
+                            {% for tech in project.technologies %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+
+                        <div class="project-links">
+                            {% if project.live_url %}
+                            <a href="{{ project.live_url }}" target="_blank" rel="noopener noreferrer" class="project-link primary">
+                                <i class="fas fa-external-link-alt"></i>
+                                Live Demo
+                            </a>
+                            {% endif %}
+
+                            {% if project.github_url %}
+                            <a href="{{ project.github_url }}" target="_blank" rel="noopener noreferrer" class="project-link secondary">
+                                <i class="fab fa-github"></i>
+                                Source Code
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Carousel Controls -->
+            <button class="carousel-btn carousel-btn-prev" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn carousel-btn-next" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                {% for project in projects.projects %}
+                <button class="indicator {% if loop.index == 1 %}active{% endif %}" data-index="{{ loop.index0 }}"></button>
+                {% endfor %}
+            </div>
+        </div>
+        {% else %}
+        <div class="text-center">
+            <p>Update your projects in the projects.json file to display them here.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title jade-text-gradient">Work Experience</h2>
+            <p class="section-subtitle">My professional journey and key accomplishments</p>
+        </div>
+
+        {% if experience and experience.experience %}
+        <div class="experience-timeline">
+            {% for job in experience.experience %}
+            <div class="experience-item {% if job.current %}experience-current{% endif %}">
+                <div class="experience-header">
+                    <h3 class="experience-title">{{ job.title }}</h3>
+                    <div class="experience-company">{{ job.company }}</div>
+                    <div class="experience-meta">
+                        <div class="experience-meta-item">
+                            <i class="fas fa-calendar"></i>
+                            {{ job.start_date }} - {% if job.current %}Present{% else %}{{ job.end_date }}{% endif %}
+                        </div>
+                        {% if job.location %}
+                        <span class="separator">•</span>
+                        <div class="experience-meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            {{ job.location }}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="experience-description">
+                    {{ job.description }}
+                </div>
+
+                {% if job.achievements %}
+                <div class="experience-achievements-section">
+                    <h4>Key Achievements</h4>
+                    <ul class="experience-achievements">
+                        {% for achievement in job.achievements %}
+                        <li>{{ achievement }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if job.technologies %}
+                <div class="experience-tech">
+                    {% for tech in job.technologies %}
+                    <span class="tech-tag">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Education Section -->
+        {% if experience.education %}
+        <div class="education-section">
+            <div class="section-header">
+                <h3 class="section-title jade-text-gradient">Education</h3>
+            </div>
+
+            <div class="education-grid">
+                {% for edu in experience.education %}
+                <div class="education-card">
+                    <div class="card-header">
+                        <h4 class="card-title">{{ edu.degree }}</h4>
+                        <div class="card-subtitle">{{ edu.institution }}</div>
+                        <div class="card-meta">
+                            <div class="education-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>{{ edu.start_date }} - {{ edu.end_date }}</span>
+                            </div>
+                            {% if edu.location %}
+                            <div class="education-meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>{{ edu.location }}</span>
+                            </div>
+                            {% endif %}
+                            {% if edu.gpa %}
+                            <div class="education-meta-item">
+                                <i class="fas fa-star"></i>
+                                <span>GPA: {{ edu.gpa }}</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="card-content">
+                        <p>{{ edu.description }}</p>
+                    </div>
+
+                    {% if edu.achievements %}
+                    <div class="education-achievements">
+                        <h5>Notable Achievements</h5>
+                        <ul>
+                            {% for achievement in edu.achievements %}
+                            <li>{{ achievement }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        {% else %}
+        <div class="text-center">
+            <p>Update your experience in the experience.json file to display it here.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Achievements Section -->
+<section id="achievements" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title jade-text-gradient">Achievements & Recognition</h2>
+            <p class="section-subtitle">Awards, certifications, and notable accomplishments</p>
+        </div>
+
+        {% if achievements and achievements.achievements %}
+        <div class="achievements-grid">
+            {% for achievement in achievements.achievements %}
+            <div class="achievement-card glass-card">
+                <span class="achievement-icon">{{ achievement.icon }}</span>
+                <h3 class="achievement-title">{{ achievement.title }}</h3>
+                <div class="achievement-org">{{ achievement.organization }}</div>
+                <div class="achievement-date">
+                    <i class="fas fa-calendar"></i>
+                    {{ achievement.date }}
+                </div>
+                <p class="achievement-description">{{ achievement.description }}</p>
+
+                {% if achievement.image %}
+                <div class="achievement-image" style="margin-top: 1rem;">
+                    <img src="{{ achievement.image }}" alt="{{ achievement.title }}" style="max-width: 100%; border-radius: 8px; opacity: 0.8;">
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="text-center">
+            <p>Update your achievements in the achievements.json file to display them here.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title jade-text-gradient">Get In Touch</h2>
+            <p class="section-subtitle">Let's discuss your next project or collaboration opportunity</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+
+                {% if personal %}
+                {% if personal.email %}
+                <div class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <span>{{ personal.email }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if personal.phone %}
+                <div class="contact-item">
+                    <i class="fas fa-phone contact-icon"></i>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <span>{{ personal.phone }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if personal.location %}
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <span>{{ personal.location }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if personal.social %}
+                <div class="contact-item">
+                    <i class="fas fa-globe contact-icon"></i>
+                    <div class="contact-details">
+                        <h4>Social Media</h4>
+                        <div class="social-links" style="margin-top: 0.5rem;">
+                            {% if personal.social.github %}
+                            <a href="{{ personal.social.github }}" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            {% endif %}
+
+                            {% if personal.social.linkedin %}
+                            <a href="{{ personal.social.linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            {% endif %}
+
+                            {% if personal.social.twitter %}
+                            <a href="{{ personal.social.twitter }}" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endif %}
+            </div>
+
+            <div class="contact-form">
+                <form id="contactForm" method="POST" action="#contact">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" class="glass-input" required placeholder="Your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" class="glass-input" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" class="glass-input" required placeholder="Project inquiry, collaboration, etc.">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" class="glass-input" required placeholder="Tell me about your project or how we can work together..."></textarea>
+                    </div>
+
+                    <button type="submit" class="glass-button" style="width: 100%; justify-content: center;">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+// Smooth scrolling for navigation links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+
+        if (targetSection) {
+            targetSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Update active nav link
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// Update active nav link on scroll
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPosition = window.scrollY + 100;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
+// Projects Carousel Functionality
+class ProjectsCarousel {
+    constructor() {
+        this.carousel = document.getElementById('projectsCarousel');
+        this.cards = document.querySelectorAll('.project-carousel-card');
+        this.prevBtn = document.getElementById('prevBtn');
+        this.nextBtn = document.getElementById('nextBtn');
+        this.indicators = document.querySelectorAll('.indicator');
+        this.currentIndex = 0;
+        this.totalCards = this.cards.length;
+
+        if (this.totalCards === 0) return;
+
+        this.init();
+    }
+
+    init() {
+        // Add event listeners
+        this.prevBtn?.addEventListener('click', () => this.prevProject());
+        this.nextBtn?.addEventListener('click', () => this.nextProject());
+
+        // Add indicator listeners
+        this.indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => this.goToProject(index));
+        });
+
+        // Add card click listeners for side cards
+        this.cards.forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (index !== this.currentIndex) {
+                    this.goToProject(index);
+                }
+            });
+        });
+
+        // Auto-play carousel
+        this.startAutoPlay();
+
+        // Pause auto-play on hover
+        this.carousel?.addEventListener('mouseenter', () => this.pauseAutoPlay());
+        this.carousel?.addEventListener('mouseleave', () => this.startAutoPlay());
+
+        // Initial setup
+        this.updateCarousel();
+    }
+
+    updateCarousel() {
+        this.cards.forEach((card, index) => {
+            // Remove all position classes
+            card.classList.remove('center', 'left-1', 'left-2', 'right-1', 'right-2', 'hidden');
+
+            // Calculate relative position
+            const relativePos = this.getRelativePosition(index);
+
+            // Apply appropriate class based on position
+            switch (relativePos) {
+                case 0:
+                    card.classList.add('center');
+                    break;
+                case -1:
+                    card.classList.add('left-1');
+                    break;
+                case -2:
+                    card.classList.add('left-2');
+                    break;
+                case 1:
+                    card.classList.add('right-1');
+                    break;
+                case 2:
+                    card.classList.add('right-2');
+                    break;
+                default:
+                    card.classList.add('hidden');
+                    break;
+            }
+
+            // Set CSS custom properties for hover effects
+            const transforms = this.getTransformValues(relativePos);
+            card.style.setProperty('--translateX', transforms.translateX);
+            card.style.setProperty('--scale', transforms.scale);
+            card.style.setProperty('--rotateY', transforms.rotateY);
+            card.style.setProperty('--opacity', transforms.opacity);
+        });
+
+        // Update indicators
+        this.indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+
+    getRelativePosition(cardIndex) {
+        let relativePos = cardIndex - this.currentIndex;
+
+        // Handle circular positioning
+        if (relativePos > this.totalCards / 2) {
+            relativePos -= this.totalCards;
+        } else if (relativePos < -this.totalCards / 2) {
+            relativePos += this.totalCards;
+        }
+
+        return relativePos;
+    }
+
+    getTransformValues(relativePos) {
+        const transforms = {
+            translateX: '0px',
+            scale: '1',
+            rotateY: '0deg',
+            opacity: '1'
+        };
+
+        switch (relativePos) {
+            case 0: // center
+                transforms.translateX = '0px';
+                transforms.scale = '1';
+                transforms.rotateY = '0deg';
+                transforms.opacity = '1';
+                break;
+            case -1: // left-1
+                transforms.translateX = '-380px';
+                transforms.scale = '0.85';
+                transforms.rotateY = '15deg';
+                transforms.opacity = '0.7';
+                break;
+            case -2: // left-2
+                transforms.translateX = '-650px';
+                transforms.scale = '0.7';
+                transforms.rotateY = '25deg';
+                transforms.opacity = '0.4';
+                break;
+            case 1: // right-1
+                transforms.translateX = '380px';
+                transforms.scale = '0.85';
+                transforms.rotateY = '-15deg';
+                transforms.opacity = '0.7';
+                break;
+            case 2: // right-2
+                transforms.translateX = '650px';
+                transforms.scale = '0.7';
+                transforms.rotateY = '-25deg';
+                transforms.opacity = '0.4';
+                break;
+        }
+
+        return transforms;
+    }
+
+    nextProject() {
+        this.currentIndex = (this.currentIndex + 1) % this.totalCards;
+        this.updateCarousel();
+    }
+
+    prevProject() {
+        this.currentIndex = (this.currentIndex - 1 + this.totalCards) % this.totalCards;
+        this.updateCarousel();
+    }
+
+    goToProject(index) {
+        if (index !== this.currentIndex) {
+            this.currentIndex = index;
+            this.updateCarousel();
+        }
+    }
+
+    startAutoPlay() {
+        this.pauseAutoPlay(); // Clear any existing interval
+        if (this.totalCards > 1) {
+            this.autoPlayInterval = setInterval(() => {
+                this.nextProject();
+            }, 6000); // Change slide every 6 seconds
+        }
+    }
+
+    pauseAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+}
+
+// Contact form handling
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(this);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+
+    // Simple mailto link for now (you can replace with actual form handling)
+    const mailtoLink = `mailto:{{ personal.email if personal and personal.email else 'programmerquannguyen@gmail.com' }}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+
+    window.location.href = mailtoLink;
+
+    // Reset form
+    this.reset();
+
+    // Show success message (you can customize this)
+    alert('Thank you for your message! Your email client should open with the message ready to send.');
+});
+
+// Animate skill progress bars when they come into view
+const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.skill-progress');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+    });
+}, observerOptions);
+
+const skillsSection = document.querySelector('#skills');
+if (skillsSection) {
+    skillObserver.observe(skillsSection);
+}
+
+// Initialize carousel when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new ProjectsCarousel();
+});
+</script>
+{% endblock %}
