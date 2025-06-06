@@ -36,7 +36,7 @@
     {
       "id": 3,
       "title": "DragonsSpeak - In Progress",
-      "description": "A custom online chat platform for D&D campaigns, complete with an inventory system for item tracking and a private “whisper” feature to make party communication effortless.",
+      "description": "An online chat platform for D&D campaigns, with an inventory system and private “whisper” feature",
       "image": "/static/images/projects/dragons-speak.jpeg",
       "technologies": [],
       "features": [],
