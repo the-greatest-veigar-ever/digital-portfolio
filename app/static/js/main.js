@@ -19,7 +19,38 @@ function initializePortfolio() {
 // Navigation functionality
 function setupNavigation() {
     const navbar = document.querySelector('.navbar');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navContainer = document.querySelector('.nav-container');
     const navLinks = document.querySelectorAll('.nav-link');
+
+    // Toggle mobile menu
+    menuToggle?.addEventListener('click', () => {
+        menuToggle.classList.toggle('active');
+        navContainer.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && 
+            !navbar.contains(e.target) && 
+            navContainer.classList.contains('active')) {
+            menuToggle.classList.remove('active');
+            navContainer.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    // Close mobile menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                menuToggle.classList.remove('active');
+                navContainer.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    });
 
     // Handle scroll effect on navbar
     window.addEventListener('scroll', () => {
@@ -27,8 +58,8 @@ function setupNavigation() {
             navbar.style.background = 'rgba(15, 23, 42, 0.95)';
             navbar.style.borderColor = 'rgba(16, 185, 129, 0.3)';
         } else {
-            navbar.style.background = 'rgba(15, 23, 42, 0.8)';
-            navbar.style.borderColor = 'rgba(16, 185, 129, 0.2)';
+            navbar.style.background = 'rgba(15, 23, 42, 0.85)';
+            navbar.style.borderColor = 'rgba(16, 185, 129, 0.15)';
         }
     });
 
@@ -41,7 +72,7 @@ function setupNavigation() {
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
+                const offsetTop = targetSection.offsetTop - 100;
 
                 window.scrollTo({
                     top: offsetTop,
@@ -50,9 +81,6 @@ function setupNavigation() {
 
                 // Update active state
                 updateActiveNavLink(this);
-
-                // Close mobile menu if open
-                closeMobileMenu();
             }
         });
     });
@@ -92,14 +120,6 @@ function updateActiveNavLink(activeLink) {
         link.classList.remove('active');
     });
     activeLink.classList.add('active');
-}
-
-// Close mobile menu
-function closeMobileMenu() {
-    const mobileMenu = document.querySelector('.mobile-menu');
-    if (mobileMenu) {
-        mobileMenu.classList.remove('open');
-    }
 }
 
 // Scroll effects

@@ -3,8 +3,8 @@
     {
       "id": 1,
       "title": "AI-Adoption Roadmap for De Heus Myanmar",
-      "description": "",
-      "image": "/static/images/projects/ai-roadmap.png",
+      "description": "...",
+      "image": "/static/images/projects/ai-roadmap.jpg",
       "technologies": ["Python", "Streamlit", "Machine Learning", "Data Analysis", "AI Modeling"],
       "features": [
         "Analyzed key broiler variables for closed and open housing setups",
@@ -19,7 +19,7 @@
     {
       "id": 2,
       "title": "Music Note Detector",
-      "description": "Built a Flask-based web application that detects musical notes from sheet music images using Jinja2 templates and image-processing algorithms.",
+      "description": "Flask application detects music notes from audio files and microphone input",
       "image": "/static/images/projects/music-note-detector.png",
       "technologies": ["Python", "Flask", "Jinja2", "OpenCV", "TensorFlow"],
       "features": [
@@ -29,7 +29,7 @@
         "Integrated TensorFlow models for real-time note classification"
       ],
       "github_url": "https://github.com/the-greatest-veigar-ever/Music-Note-Detector-Flask.git",
-      "live_url": "",
+      "live_url": "https://coderqq-music-detector.up.railway.app/",
       "status": "completed",
       "date": "May 2025 – June 2025"
     },
