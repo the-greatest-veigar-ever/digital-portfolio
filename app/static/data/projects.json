@@ -21,14 +21,13 @@
       "title": "Music Note Detector",
       "description": "Flask application detects music notes from audio files and microphone input",
       "image": "/static/images/projects/music-note-detector.png",
-      "technologies": ["Python", "Flask", "Jinja2", "OpenCV", "TensorFlow"],
+      "technologies": ["Python", "Flask", "Jinja2", "librosa", "pydub", "pyaudio"],
       "features": [
         "Implemented an image-processing pipeline to isolate and identify note symbols",
         "Developed RESTful endpoints for uploading and processing sheet music",
         "Rendered dynamic result pages using Jinja2 templates",
         "Integrated TensorFlow models for real-time note classification"
       ],
-      "github_url": "https://github.com/the-greatest-veigar-ever/Music-Note-Detector-Flask.git",
       "live_url": "https://coderqq-music-detector.up.railway.app/",
       "status": "completed",
       "date": "May 2025 – June 2025"
