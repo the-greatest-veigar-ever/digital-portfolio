@@ -5,7 +5,7 @@
       "title": "AI-Adoption Roadmap for De Heus Myanmar",
       "description": "",
       "image": "/static/images/projects/ai-roadmap.jpg",
-      "technologies": ["Python", "Streamlit", "Machine Learning", "Data Analysis", "AI Modeling"],
+      "technologies": ["Python", "Streamlit", "AI/ML", "Data Analysis", "AI Modeling"],
       "features": [
         "Analyzed key broiler variables for closed and open housing setups",
         "Developed interactive Streamlit dashboards for data visualization",

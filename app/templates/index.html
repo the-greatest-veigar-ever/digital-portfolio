@@ -386,64 +386,52 @@
 
         <div class="contact-content">
             <div class="contact-info">
-                <h3>Contact Information</h3>
-
                 {% if personal %}
-                {% if personal.email %}
-                <div class="contact-item">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <div class="contact-details">
-                        <h4>Email</h4>
+                <div class="contact-quick-links">
+                    {% if personal.email %}
+                    <a href="mailto:{{ personal.email }}" class="quick-contact-link">
+                        <i class="fas fa-envelope"></i>
                         <span>{{ personal.email }}</span>
-                    </div>
-                </div>
-                {% endif %}
+                    </a>
+                    {% endif %}
 
-                {% if personal.phone %}
-                <div class="contact-item">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <div class="contact-details">
-                        <h4>Phone</h4>
+                    {% if personal.phone %}
+                    <a href="tel:{{ personal.phone }}" class="quick-contact-link">
+                        <i class="fas fa-phone"></i>
                         <span>{{ personal.phone }}</span>
-                    </div>
-                </div>
-                {% endif %}
+                    </a>
+                    {% endif %}
 
-                {% if personal.location %}
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt contact-icon"></i>
-                    <div class="contact-details">
-                        <h4>Location</h4>
+                    {% if personal.location %}
+                    <div class="quick-contact-link">
+                        <i class="fas fa-map-marker-alt"></i>
                         <span>{{ personal.location }}</span>
                     </div>
+                    {% endif %}
                 </div>
-                {% endif %}
 
                 {% if personal.social %}
-                <div class="contact-item">
-                    <i class="fas fa-globe contact-icon"></i>
-                    <div class="contact-details">
-                        <h4>Social Media</h4>
-                        <div class="social-links" style="margin-top: 0.5rem;">
-                            {% if personal.social.github %}
-                            <a href="{{ personal.social.github }}" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            {% endif %}
+                <div class="social-links-grid">
+                    {% if personal.social.github %}
+                    <a href="{{ personal.social.github }}" target="_blank" rel="noopener noreferrer" class="social-grid-link" title="GitHub">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    {% endif %}
 
-                            {% if personal.social.linkedin %}
-                            <a href="{{ personal.social.linkedin }}" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            {% endif %}
+                    {% if personal.social.linkedin %}
+                    <a href="{{ personal.social.linkedin }}" target="_blank" rel="noopener noreferrer" class="social-grid-link" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    {% endif %}
 
-                            {% if personal.social.twitter %}
-                            <a href="{{ personal.social.twitter }}" target="_blank" rel="noopener noreferrer" class="social-link" title="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
+                    {% if personal.social.twitter %}
+                    <a href="{{ personal.social.twitter }}" target="_blank" rel="noopener noreferrer" class="social-grid-link" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                        <span>Twitter</span>
+                    </a>
+                    {% endif %}
                 </div>
                 {% endif %}
                 {% endif %}
