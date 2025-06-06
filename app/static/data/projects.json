@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "AI-Adoption Roadmap for De Heus Myanmar",
-      "description": "...",
+      "description": "",
       "image": "/static/images/projects/ai-roadmap.jpg",
       "technologies": ["Python", "Streamlit", "Machine Learning", "Data Analysis", "AI Modeling"],
       "features": [
