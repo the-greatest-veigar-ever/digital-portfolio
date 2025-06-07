@@ -35,20 +35,8 @@
     {
       "id": 3,
       "title": "DragonsSpeak - In Progress",
-      "description": "An online chat platform for D&D campaigns, with an inventory system and private “whisper” feature",
+      "description": "An online chat platform for D&D campaigns, with an inventory system and private \"whisper\" feature",
       "image": "/static/images/projects/dragons-speak.jpeg",
-      "technologies": [],
-      "features": [],
-      "github_url": "",
-      "live_url": "",
-      "status": "",
-      "date": ""
-    },
-    {
-      "id": 4,
-      "title": "Project Title Placeholder",
-      "description": "",
-      "image": "",
       "technologies": [],
       "features": [],
       "github_url": "",
